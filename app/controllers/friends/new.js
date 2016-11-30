@@ -1,9 +1,9 @@
 import Ember from 'ember';
 export default Ember.Controller.extend({
   actions: {
-    save(model) {
+    save() {
       console.log('+--- save action called in friends new controller');
-      this.transitionToRoute('friends.show', model);
+      this.transitionToRoute('friends.index');
     },
     cancel() {
       console.log('+--- cancel action called in friends new controller');
