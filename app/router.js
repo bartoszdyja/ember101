@@ -2,8 +2,7 @@ import Ember from 'ember';
 import config from './config/environment';
 
 const Router = Ember.Router.extend({
-  location: config.locationType,
-  rootURL: config.rootURL
+  location: config.locationType
 });
 
 Router.map(function() {
@@ -12,6 +11,10 @@ Router.map(function() {
 
     this.route('show', {
       path: ':friend_id'
+    }, function() {
+      this.route('loans', {resetNamespace: true}, function() {
+        this.route('new');
+      });
     });
 
     this.route('edit', {
@@ -29,6 +32,7 @@ Router.map(function() {
       path: ':article_id/edit'
     });
   });
+  this.route('loans', function() {});
 });
 
 export default Router;
